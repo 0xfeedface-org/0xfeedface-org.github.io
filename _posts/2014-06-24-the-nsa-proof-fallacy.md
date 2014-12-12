@@ -1,0 +1,25 @@
+---
+layout: post
+title: The NSA-Proof Fallacy
+created: 1403616773
+---
+Around the world, many people are pushing for so-called <a href="http://www.ibtimes.co.uk/nsa-proof-server-protonet-smashes-crowdfunding-record-by-raising-1m-89-minutes-1451301" target="_blank">NSA-proof</a> services. Believing that any service can be resilient to spying or wiretapping from the NSA is naive. No such service can exist. Those who are funding services like ProtoNet are wasting their money and are believing the lies sold to them by profiteers.<br/>
+<br/>
+Please note that while I use ProtoNet throughout this article, I'm using them mainly as an example. Plenty of <a href="http://www.wired.com/2014/01/twister/" target="_blank">other</a> <a href="http://www.globalpost.com/dispatch/news/regions/europe/130723/pirate-bay-founder-plans-nsa-proof-messaging-app" target="_blank">examples</a> of <a href="http://mashable.com/2014/01/15/blackphone/" taget="_blank">profiteering</a> companies and services exist.<br/>
+<br/>
+<strong>Email Services</strong><br/>
+A message must contain two pieces of metadata at a very minimum: who is sending the message and to whom the message will be delivered. These two pieces must be sent in the clear. Otherwise, the Mail Transfer Agent (MTA) won't know what to do with the message. As we've seen with the PRISM program, the NSA is mainly interested in metadata. The NSA doesn't have the resources to store every single bit transferred over the Internet--instead, it settles for just the metadata. The services ProtoNet will offer will still be vulnerable to metadata analysis by the NSA.<br/>
+<br/>
+<strong>End-to-End Encryption</strong><br/>
+As Moxie Marlinspike has <a href="https://www.youtube.com/watch?v=UawS3_iuHoA" target="_blank">described</a>, SSL has many problems. <a href="http://www.verisign.com/" target="_blank">Verisign</a> is a large US-based registrar just a few miles away from Washington, DC, that provides not only domain names, but also SSL sertificates. What's stopping the NSA (or other intelligence agencies within the US) from compelling Verisign or other SSL certificate vendors from secretly issuing wildcard certificates to help in the spying/wiretapping effort? A wildcard certificate would enable the US government to secretly snoop on any SSL-encrypted web traffic.<br/>
+<br/>
+With Bush giving telecommunications providers full immunity via his famous FISA expansion legislation, it's easy to draw the conclusion that Verisign will be given immunity, too. Even if Verisign doesn't provide the US with a wildcard certificate, browser vendors contain <a href="https://docs.google.com/spreadsheet/pub?key=0Ah-tHXMAwqU3dGx0cGFObG9QM192NFM4UWNBMlBaekE&amp;single=true&amp;gid=1&amp;output=html" target="_blank">dozens</a> of trusted SSL certificate vendors. The NSA could compel or compromise one or more of these vendors.<br/>
+<br/>
+<strong>Hosting Data Abroad</strong><br/>
+We Americans would like to believe that as citizens of the US, our data is safe both when stored inside the nation and outside of it. The NSA believes that any data that lives outside the US, no matter whom the data is about, has fewer protections than data stored in the US. The NSA is <a href="http://rt.com/news/160988-wikileaks-nsa-phone-afghanistan/" target="_blank">recording</a> nearly all calls in multiple countries. The NSA is <a href="http://www.spiegel.de/international/the-germany-file-of-edward-snowden-documents-available-for-download-a-975917.html" target="_blank">working</a> with Germany to make wiretapping easy in the country.<br/>
+<br/>
+<strong>Javascript-Based Encryption</strong><br/>
+ProtoNet will use a javascript encryption library to encrypt messages in the browser before the message is sent to the server. They say this will make it so that not even ProtoNet will be able to decrypt your messages. Except in notable cases, the NSA isn't interested in the message payload. The NSA is interested in the message's metadata. In those cases in which the NSA would be interested in the message payload, the javascript encryption library must be hosted on some server somewhere and downloaded by the client. The NSA could use their SSL wildcard certificates to do a man-in-the-middle attack and serve up a malicious javascript library. They could also compromise the servers on which the javascript library lives and directly modify the javascript.<br/>
+<br/>
+<strong>Conclusion</strong><br/>
+A lot of these ideas sound like conspiracy theories. If the NSA can create the devices in its <a href="http://en.wikipedia.org/wiki/NSA_ANT_catalog" target="_blank">ANT Catalog</a>, wholesale record phone conversations in other countries, work with foreign governments to spy on their people, <a href="http://arstechnica.com/tech-policy/2014/05/photos-of-an-nsa-upgrade-factory-show-cisco-router-getting-implant/" target="_blank">intercept</a> and backdoor networking equipment, why can't the NSA spy on so-called "NSA-proof" services? The NSA has the capability to spy on nearly anyone and everyone. The title of Glenn Greenwald's book paints the correct picture: there is no place to hide.

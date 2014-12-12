@@ -1,220 +1,30 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>0xfeedface</title>
-    <description>Tech musings and rants. Pretty much my thoughts on life with some technical articles about things I find interesting.
-</description>
-    <link>http://0xfeedface.org/</link>
-    <atom:link href="http://0xfeedface.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Dec 2014 19:55:12 -0500</pubDate>
-    <lastBuildDate>Thu, 11 Dec 2014 19:55:12 -0500</lastBuildDate>
-    <generator>Jekyll v2.5.2</generator>
-    
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:10 %}
       <item>
-        <title>Site Growth</title>
-        <description>&lt;p&gt;This time a year ago, I was averaging around 600 unique visitors per month. Now I’m averaging several thousand. I’ve outgrown this little VPS. It can’t handle keeping the site online while running OS upgrades. Some of you probably noticed a bit of downtime yesterday. That was due to running critical updates. During this next week, I’m planning on migrating some services over to different boxes. You will notice a little more downtime. Hopefully this transition will go smoothly.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 09 Jul 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/07/09/site-growth.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/07/09/site-growth.html</guid>
-        
-        
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
       </item>
-    
-      <item>
-        <title>New Logo</title>
-        <description>&lt;p&gt;I’ve been following the web comic &lt;a href=&quot;http://www.loadingartist.com/&quot; target=&quot;_blank&quot;&gt;Loading Artist&lt;/a&gt; for a while. I thought the character depicted in &lt;a href=&quot;http://www.loadingartist.com/comic/man-enough/&quot; target=&quot;_blank&quot;&gt;Man Enough&lt;/a&gt; was a perfect fit for 0xfeedface. I contacted Gregor, the author of the web comic, and asked him to see if I could use the character. You can tell that by my using the character, he said it was okay. Anyways, I just thought I’d give a special shout out to him since I like his work and he’s awesome for allowing me to use his character. Props to him!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 06 Jul 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/07/06/new-logo.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/07/06/new-logo.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>The NSA-Proof Fallacy</title>
-        <description>&lt;p&gt;Around the world, many people are pushing for so-called &lt;a href=&quot;http://www.ibtimes.co.uk/nsa-proof-server-protonet-smashes-crowdfunding-record-by-raising-1m-89-minutes-1451301&quot; target=&quot;_blank&quot;&gt;NSA-proof&lt;/a&gt; services. Believing that any service can be resilient to spying or wiretapping from the NSA is naive. No such service can exist. Those who are funding services like ProtoNet are wasting their money and are believing the lies sold to them by profiteers.&lt;br /&gt;
-&lt;br /&gt;
-Please note that while I use ProtoNet throughout this article, I’m using them mainly as an example. Plenty of &lt;a href=&quot;http://www.wired.com/2014/01/twister/&quot; target=&quot;_blank&quot;&gt;other&lt;/a&gt; &lt;a href=&quot;http://www.globalpost.com/dispatch/news/regions/europe/130723/pirate-bay-founder-plans-nsa-proof-messaging-app&quot; target=&quot;_blank&quot;&gt;examples&lt;/a&gt; of &lt;a href=&quot;http://mashable.com/2014/01/15/blackphone/&quot; taget=&quot;_blank&quot;&gt;profiteering&lt;/a&gt; companies and services exist.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Email Services&lt;/strong&gt;&lt;br /&gt;
-A message must contain two pieces of metadata at a very minimum: who is sending the message and to whom the message will be delivered. These two pieces must be sent in the clear. Otherwise, the Mail Transfer Agent (MTA) won’t know what to do with the message. As we’ve seen with the PRISM program, the NSA is mainly interested in metadata. The NSA doesn’t have the resources to store every single bit transferred over the Internet–instead, it settles for just the metadata. The services ProtoNet will offer will still be vulnerable to metadata analysis by the NSA.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;End-to-End Encryption&lt;/strong&gt;&lt;br /&gt;
-As Moxie Marlinspike has &lt;a href=&quot;https://www.youtube.com/watch?v=UawS3_iuHoA&quot; target=&quot;_blank&quot;&gt;described&lt;/a&gt;, SSL has many problems. &lt;a href=&quot;http://www.verisign.com/&quot; target=&quot;_blank&quot;&gt;Verisign&lt;/a&gt; is a large US-based registrar just a few miles away from Washington, DC, that provides not only domain names, but also SSL sertificates. What’s stopping the NSA (or other intelligence agencies within the US) from compelling Verisign or other SSL certificate vendors from secretly issuing wildcard certificates to help in the spying/wiretapping effort? A wildcard certificate would enable the US government to secretly snoop on any SSL-encrypted web traffic.&lt;br /&gt;
-&lt;br /&gt;
-With Bush giving telecommunications providers full immunity via his famous FISA expansion legislation, it’s easy to draw the conclusion that Verisign will be given immunity, too. Even if Verisign doesn’t provide the US with a wildcard certificate, browser vendors contain &lt;a href=&quot;https://docs.google.com/spreadsheet/pub?key=0Ah-tHXMAwqU3dGx0cGFObG9QM192NFM4UWNBMlBaekE&amp;amp;single=true&amp;amp;gid=1&amp;amp;output=html&quot; target=&quot;_blank&quot;&gt;dozens&lt;/a&gt; of trusted SSL certificate vendors. The NSA could compel or compromise one or more of these vendors.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Hosting Data Abroad&lt;/strong&gt;&lt;br /&gt;
-We Americans would like to believe that as citizens of the US, our data is safe both when stored inside the nation and outside of it. The NSA believes that any data that lives outside the US, no matter whom the data is about, has fewer protections than data stored in the US. The NSA is &lt;a href=&quot;http://rt.com/news/160988-wikileaks-nsa-phone-afghanistan/&quot; target=&quot;_blank&quot;&gt;recording&lt;/a&gt; nearly all calls in multiple countries. The NSA is &lt;a href=&quot;http://www.spiegel.de/international/the-germany-file-of-edward-snowden-documents-available-for-download-a-975917.html&quot; target=&quot;_blank&quot;&gt;working&lt;/a&gt; with Germany to make wiretapping easy in the country.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Javascript-Based Encryption&lt;/strong&gt;&lt;br /&gt;
-ProtoNet will use a javascript encryption library to encrypt messages in the browser before the message is sent to the server. They say this will make it so that not even ProtoNet will be able to decrypt your messages. Except in notable cases, the NSA isn’t interested in the message payload. The NSA is interested in the message’s metadata. In those cases in which the NSA would be interested in the message payload, the javascript encryption library must be hosted on some server somewhere and downloaded by the client. The NSA could use their SSL wildcard certificates to do a man-in-the-middle attack and serve up a malicious javascript library. They could also compromise the servers on which the javascript library lives and directly modify the javascript.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;br /&gt;
-A lot of these ideas sound like conspiracy theories. If the NSA can create the devices in its &lt;a href=&quot;http://en.wikipedia.org/wiki/NSA_ANT_catalog&quot; target=&quot;_blank&quot;&gt;ANT Catalog&lt;/a&gt;, wholesale record phone conversations in other countries, work with foreign governments to spy on their people, &lt;a href=&quot;http://arstechnica.com/tech-policy/2014/05/photos-of-an-nsa-upgrade-factory-show-cisco-router-getting-implant/&quot; target=&quot;_blank&quot;&gt;intercept&lt;/a&gt; and backdoor networking equipment, why can’t the NSA spy on so-called “NSA-proof” services? The NSA has the capability to spy on nearly anyone and everyone. The title of Glenn Greenwald’s book paints the correct picture: there is no place to hide.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 24 Jun 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/06/24/the-nsa-proof-fallacy.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/06/24/the-nsa-proof-fallacy.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Administering FreeBSD ASLR Through Firewall Rules</title>
-        <description>&lt;p&gt;&lt;strong&gt;Why a firewall?&lt;/strong&gt;
-Over the past few months, I’ve been working with another developer named Oliver Pinter. He started work a few months back in porting PaX’s ASLR implementation to FreeBSD and I’ve been enhancing his implementation in behalf of SoldierX. One of Oliver’s goals was to port the &lt;code&gt;paxctl&lt;/code&gt; program. When I joined him in this process, he hadn’t yet started on the &lt;code&gt;paxctl&lt;/code&gt; port. &lt;code&gt;paxctl&lt;/code&gt; adds an ELF section header to executable files that tells the kernel ELF loader if ASLR should be turned on or off for this file. While he was fixing other bugs and implementing other features, I had started work on porting &lt;code&gt;paxctl&lt;/code&gt; over. I quickly realized using ELF section headers for FreeBSD simply wasn’t possible. Since they are optional, section headers are generally placed at the very end of the file. Program headers, the structures required for telling the kernel how to load the binary, are placed near the beginning of the file.&lt;/p&gt;
-
-&lt;p&gt;When you execute &lt;code&gt;execve&lt;/code&gt;, FreeBSD’s kernel will first check file existence, permissions, etc. If those checks succeed, the kernel will load only the first page of the file into memory. It uses this first page to check for a shebang line (#!/path/to/interpreter) or a binary file format. In our case, we’re dealing with ELF files. The execution is passed to the ELF loader at this point.&lt;/p&gt;
-
-&lt;p&gt;The ELF loader loops through the program headers and figures out how to load the binary into memory. Oliver and I have implemented ASLR into this stage of the loading process. Remember, section headers are at the end of the file. Since only the first page of the file is mapped into memory, we don’t have access to the PaX section headers. We’re now stuck in a catch 22. If we want to get at the section headers, we have to load the rest of the file into memory. Loading the file into memory applies ASLR settings. The PaX section header might tell us to turn off ASLR for this binary. We would have to unload the binary and reload it with the ASLR settings from the PaX section applied. Loading a binary twice for every single execution is a waste.&lt;/p&gt;
-
-&lt;p&gt;FreeBSD has a really powerful policy-based security framework they call the &lt;a href=&quot;http://www5.us.freebsd.org/doc/handbook/mac.html&quot; target=&quot;_blank&quot;&gt;MAC Framework&lt;/a&gt;. The MAC framework rules get applied even before the first page of the binary is loaded. I figured that I could apply ASLR settings to binaries by tying into the MAC framework. One MAC module is the &lt;a href=&quot;http://www.freebsd.org/cgi/man.cgi?query=mac_bsdextended&amp;amp;apropos=0&amp;amp;sektion=0&amp;amp;manpath=FreeBSD+11-current&amp;amp;arch=default&amp;amp;format=html&quot; target=&quot;_blank&quot;&gt;mac_bsdextended&lt;/a&gt; module, which provides a firewall-like interface for setting privilege accesses on resources.&lt;/p&gt;
-
-&lt;p&gt;The mac_bsdextended module, and its userland interface, ugidfw, fits our end-goal perfectly.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;ugidfw&lt;/code&gt; rule changes&lt;/strong&gt;
-NOTE: I’ll let you read the manual page for ugidfw that I linked to above for learning how to create generic rules. I don’t want to waste time recreating the wheel.&lt;/p&gt;
-
-&lt;p&gt;I’ve modified the filesys object target to store the inode of a file if a file is specified, rather than the mountpoint of the filesystem. So if you run &lt;code&gt;ugidfw add subject uid lattera object filesys /bin/sh mode n&lt;/code&gt;, that only disables access for /bin/sh, not for all executables for the filesystem /bin/sh is in. This behavior is different from before.&lt;/p&gt;
-
-&lt;p&gt;I’ve added an optional paxflags argument to the firewall ruleset. If set, this will enable or disable ASLR for a given binary. If you run &lt;code&gt;ugidfw add subject uid lattera object filesys /bin/sh mode rx paxflags a&lt;/code&gt;, that will disable ASLR for /bin/sh, but still allow me to execute it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Demo&lt;/strong&gt;
-&lt;code&gt;
-$ id
-uid=1001(lattera) gid=1001(lattera) groups=1001(lattera),0(wheel),920(vboxusers)
-$ sudo ugidfw list
-0 slots, 0 rules
-$ ./test
-1318
-Address of ptr: 0x0000000001fdca56
-^C
-$ ./test
-1319
-Address of ptr: 0x0000000001d8aa56
-^C
-$ sudo ugidfw add subject uid lattera object filesys /usr/home/lattera/tmp/test mode rx paxflags a
-0 subject uid lattera object filesys /usr/home/lattera mode rx paxflags a
-$ ./test
-1322
-Address of ptr: 0x0000000001021a56
-^C
-$ ./test
-1323
-Address of ptr: 0x0000000001021a56
-^C
-$ ./test
-1324
-Address of ptr: 0x0000000001021a56
-^C
-$ sudo /usr/home/lattera/tmp/test
-1326
-Address of ptr: 0x0000000001d38a56
-^C$ sudo /usr/home/lattera/tmp/test
-1328
-Address of ptr: 0x0000000001e59a56
-&lt;/code&gt;
-&lt;strong&gt;Conclusion&lt;/strong&gt;
-Using a filesystem firewall will allow system administrators to create secure, dynamic rules to govern how ASLR is applied on a given system. There’s no need to directly modify a file to turn on or off ASLR. If an application is misbehaving, simply add a &lt;code&gt;ugidfw&lt;/code&gt; rule to disable ASLR for that application.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 01 May 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/05/01/administering-freebsd-aslr-through-firewall-rules.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/05/01/administering-freebsd-aslr-through-firewall-rules.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Commenting Temporarily Disabled</title>
-        <description>&lt;p&gt;Due to high volume on my site and a huge amount of spam recently, I’m temporarily disabling adding new comments. I’ll probably put in place some sort of stupid socially-interactive commenting system. I’m not sure just yet.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 29 Apr 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/04/29/commenting-temporarily-disabled.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/04/29/commenting-temporarily-disabled.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Awesome FreeBSD ASLR Progress</title>
-        <description>&lt;p&gt;I&#39;ve been quite silent on here lately. That&#39;s because I&#39;ve been hard at work. I&#39;ve been working closely with a few developers and users to get this ASLR work rock solid. I&#39;ve implemented execbase randomization for position-independent executables (PIEs). I&#39;ve added support for building PIEs in FreeBSD&#39;s base. Oliver Pinter, who was the person whose patches I based my work off of, has been extremely active as well. We&#39;ve teamed up together to fix some bugs in the PIE implementation. He did some amazing work in adding support for ASLR for all architectures FreeBSD supports. We&#39;re both tackling the challenges that come with having to support 32bit applications (less bits to randomize: more prone to errors).&lt;/p&gt;
-&lt;p&gt;As far as testing is concerned, Oliver only has access to Intel-based machines (so amd64 and x86). I have a raspberry pi (rpi). As of today, I&#39;ve started testing ASLR on ARM with my raspberry pi. On Sunday, I will have one or more sparc64 boxes in my possession. I hope to kick out regular builds (nightly? weekly?) for the rpi, sparc64, and x86, and amd64 soon. I will only have binary (pkgng) packages for amd64. Please be gentle on my bandwidth. I only have so much.&lt;/p&gt;
-&lt;p&gt;Here&#39;s a list of immediate TODO items, in no particular order:&lt;/p&gt;
-&lt;ul&gt;&lt;li&gt;Fix linuxulator&lt;/li&gt;&lt;li&gt;Fix PIE on ARM. Currently, compiling an application with PIE will cause that application to segfault once it needs to actually accomplish something worthwhile.&lt;/li&gt;&lt;li&gt;Merge in paxctl from &lt;a href=&quot;https://github.com/daniloegea/freebsd/tree/master/usr.sbin/paxctl&quot; target=&quot;_blank&quot;&gt;another developer&lt;/a&gt;&lt;/li&gt;&lt;li&gt;Finish adding PIE support to applications in base&lt;/li&gt;&lt;/ul&gt;
-&lt;p&gt;Once these things are done, I&#39;ll submit another all-inclusive patch upstream. I&#39;ll then email the FreeBSD security team to start pushing getting this merged upstream. I&#39;m really excited about all of this. It&#39;s coming together really nicely.&lt;/p&gt;
-&lt;p&gt;Here&#39;s a sneak peak of ASLR + PIE working on ARM:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://i.imgur.com/JmeUs5v.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://i.imgur.com/JmeUs5v.png&quot; alt=&quot;FreeBSD ASLR ARM&quot; title=&quot;FreeBSD ASLR ARM&quot; width=&quot;1553&quot; height=&quot;988&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 03 Apr 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/04/03/awesome-freebsd-aslr-progress.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/04/03/awesome-freebsd-aslr-progress.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Unexpected Maintenance</title>
-        <description>&lt;p&gt;Sorry for the downtime. Some updates failed to install and I ended up taking the opportunity to upgrade to FreeBSD 11-CURRENT on this server. The good news is that I’m now running this server with my ASLR+PIE patches.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 01 Apr 2014 00:00:00 -0400</pubDate>
-        <link>http://0xfeedface.org/2014/04/01/unexpected-maintenance.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/04/01/unexpected-maintenance.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>BSDCan Presentation About Implementing FreeBSD ASLR</title>
-        <description>&lt;p&gt;I have the privilege of publicly representing &lt;a href=&quot;https://www.soldierx.com/&quot; target=&quot;_blank&quot;&gt;SoldierX&lt;/a&gt; by speaking at &lt;a href=&quot;http://www.bsdcan.org/2014/&quot; target=&quot;_blank&quot;&gt;BSDCan&lt;/a&gt;, a BSD-centric conference held every year in Ottawa, Canada, this year about the work I did in behalf of SoldierX of porting grsec’s/PaX’s ASLR to FreeBSD (credit where credit is due: I enhanced and finished already-existing, but unfinished, patches provided by other awesome developers). The BSDCan people are finalizing the scheduling. I should have updates on the exact day/time of the presentation when the date gets closer. The presentation should, just as last year, be both streamed live and recorded. Once the schedule is posted online, I’ll follow up with a comment on this post with a link.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 17 Feb 2014 00:00:00 -0500</pubDate>
-        <link>http://0xfeedface.org/2014/02/17/bsdcan-presentation-about-implementing-freebsd-aslr.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/02/17/bsdcan-presentation-about-implementing-freebsd-aslr.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>FreeBSD ASLR Patch Submitted Upstream</title>
-        <description>&lt;p&gt;Over the past few months, I’ve had the pleasure of enhancing Oliver’s original patch that implements ASLR on FreeBSD. I’ve added support for randomizing the address of the RTLD and changing the behavior of ASLR to be set on a per-jail basis. This means that if a user requires an application that doesn’t support ASLR (crashes, exhibits bugs, etc.), then the affected application can simply be placed in a jail with ASLR turned off. The rest of the system and the rest of the jails could still have ASLR turned on.&lt;/p&gt;
-
-&lt;p&gt;Oliver had ported over PaX’s ASLR to NetBSD a few years back, and these patches brings FreeBSD feature-for-feature complete with NetBSD’s ASLR implementation. What’s lacking, along with NetBSD’s implementation, is exec base randomization. This needs to be done on a per-binary basis, for binaries compiled with -fPIE. Additionally, we might want to specifically mark executables with an ELF note, specifying that it’s safe to relocate the exec base.&lt;/p&gt;
-
-&lt;p&gt;One known bug is that applications compiled with clang with -fPIC -fPIE -static combined could segfault. I can provide a sample binary (with sample code) if needed for a simple five-line test application.&lt;/p&gt;
-
-&lt;p&gt;I will continue to research exec base randomization, but this task might be a bit over my head skill-wise.&lt;/p&gt;
-
-&lt;p&gt;I’ve submitted a &lt;a href=&quot;http://www.bsdcan.org/2014/&quot; target=&quot;_blank&quot;&gt;BSDCan&lt;/a&gt; presentation. I hope it will get accepted. I’ll run through how Oliver and I have implemented ASLR on FreeBSD and how tightly it’s integrated. My favorite feature is the per-jail ASLR configuration. I’m really excited for the future of this work. However, I need to take some time away from it and focus on some other projects for the next six to twelve months. If I make more progress on exec base randomization, you can follow my &lt;a href=&quot;https://github.com/lattera/freebsd/tree/soldierx/lattera/aslr&quot; target=&quot;_blank&quot;&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The PR on FreeBSD’s bug reporting (or Problem Report, PR) is &lt;a href=&quot;http://www.freebsd.org/cgi/query-pr.cgi?pr=kern/181497&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 02 Feb 2014 00:00:00 -0500</pubDate>
-        <link>http://0xfeedface.org/2014/02/02/freebsd-aslr-patch-submitted-upstream.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2014/02/02/freebsd-aslr-patch-submitted-upstream.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>My Development Environment</title>
-        <description>&lt;p&gt;I&#39;ve been quite vocal in the local meetups (the local Linux User&#39;s Group and the local hackerspace) about how awesome FreeBSD is. A number of people have asked me to write a blog post about the setup of my development environment. I&#39;m able to spin up new instances of FreeBSD in less than one second, based on ZFS and jails. Now that I have nightly builds of FreeBSD 11-CURRENT and my own pkgng repo, setting up new systems (or jails) is a breeze.&lt;/p&gt;
-&lt;p&gt;On my development server, I run 11-CURRENT with these &lt;a href=&quot;http://ix.io/9sx&quot; target=&quot;_blank&quot;&gt;packages&lt;/a&gt;. Installing with pkgng is extremely easy. Every night, I have a &lt;a href=&quot;https://github.com/lattera/nightlies-ng&quot; target=&quot;_blank&quot;&gt;cron job&lt;/a&gt; that runs every night that updates the src tree, builds a new release, and generates updated packages. I don&#39;t install any of the updates. I do that upon manual inspection of what was updated, any failures, etc.&lt;/p&gt;
-&lt;p&gt;I use my jail administration &lt;a href=&quot;https://github.com/lattera/drupal-jailadmin&quot; target=&quot;_blank&quot;&gt;project&lt;/a&gt; to manage my jails. With each of my jails, I emulate ZFS boot environments (BEs). Emulating BEs allows me to run updates in the jail with the ability to switch back to a previous BE if an update fails. I have a ZFS dataset that gets nullfs mounted in all of my jails so that I can share data between all of them (think of it like VMWare/VirtualBox shared folders). Each of my jails is configured with IPv6 so that I get a static IP, no matter what (I don&#39;t control the underlying network and each of the jail&#39;s network devices (epair devices) get assigned random MAC addresses, so DHCP always gives a new IPv4 address).&lt;/p&gt;
-&lt;p&gt;Since my system uses ipfw, I can also use dummynet in conjunction with my jails. Using dummynet allows me to emulate networks of varying speeds, packet loss, etc. I&#39;ve been working a lot on Freshclam, the component of ClamAV that keeps ClamAV&#39;s databases up-to-date. In order to make sure that my changes work okay in various situations, I&#39;ve used dummynet to test how Freshclam would react to networks with high latencies and high packet loss.&lt;/p&gt;
-&lt;p&gt;FreeBSD&#39;s rc system doesn&#39;t play well with vnet jails, so I created a simple Drush module and rc script that calls into Drush. Using my jail administration project, I&#39;ve marked certain jails to automatically start up whenever my dev box boots up.&lt;/p&gt;
-&lt;p&gt;If I need a new jail, then I can either build a new one from scratch or I can clone an existing jail. Cloning an existing jail will also copy all the settings (but not copy certain settings like IP addresses, since having two jails with the same IP address just doesn&#39;t make sense). Performing a clone literally takes less than one second. I&#39;d like to see Amazon&#39;s AWS/EC2 do that.&lt;/p&gt;
-&lt;p&gt;There&#39;s a lot to do to make my environment better. My Drupal module requires you to give passwordless sudo access to the www user for certain commands. Obviously, that&#39;s not ideal. As part of my VirtBSD project, I&#39;m redesigning this portion to rely on a client/server paradigm. I&#39;m also looking into integrating with Bhyve. I&#39;m toying with the Go language and I&#39;m nearly convinced that Go is what I&#39;ll be using to redesign my jail administration project.&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;span style=&quot;line-height: 1.5;&quot;&gt;So, in short, using ZFS, vnet, jails, and my jail administration Drupal module makes for a very efficient development environment setup. There&#39;s more that I can do to make it more efficient. I&#39;m excited to see what&#39;s around the corner.&lt;/span&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 19 Dec 2013 00:00:00 -0500</pubDate>
-        <link>http://0xfeedface.org/2013/12/19/my-development-environment.html</link>
-        <guid isPermaLink="true">http://0xfeedface.org/2013/12/19/my-development-environment.html</guid>
-        
-        
-      </item>
-    
+    {% endfor %}
   </channel>
 </rss>

@@ -1,0 +1,17 @@
+# Site settings
+title: "0xfeedface"
+email: shawn.webb@hardenedbsd.org
+description: > # this means to ignore newlines until "baseurl:"
+        Tech musings and rants. Pretty much my thoughts on life with
+        some technical articles about things I find interesting.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://0xfeedface.org" # the base hostname & protocol for your site
+twitter_username: lattera
+github_username:  lattera
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+excerpt_separator: ""
+
+timezone: America/New_York

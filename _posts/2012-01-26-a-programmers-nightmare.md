@@ -1,0 +1,18 @@
+---
+layout: post
+title: A Programmer's Nightmare
+created: 1327637227
+---
+Every programmer fears it. Every programmer faces it. Every programmer knows it. Burning out. This blog entry is a reflection of the past and what I see for myself in the future.
+
+I started programming when I was around 10-11. I wrote my first line of code on a piece of paper with a pen someone discarded at school. My parents were pretty poor. It would be three years before we would own a computer. A year later, we would be connected to the Internet at blazing speeds of 56kbps. In the three to four years (I can't pinpoint exactly when I started programming due to various events in my life) I spent writing code by-hand, I learned a bit of HTML--no, it's not technically programming until you mix in javascript--and I started on my way to learning C. I wrote very basic applications. I wrote calculators that would push/pop from a stack. I wrote little client/server chat applications. I wrote basic shells. Little by little, my projects got more complex, my code got more efficient.
+
+I hated school. I hated learning boring, menial tasks that at the time I felt had nothing to do with my passion: programming. I know now that was foolish thinking. Nevertheless, by the middle of my sophomore year in high school, I had a cumulative GPA of 0.07. Five F's and one A (the A was, not surprisingly, in computer tech). I architected a closed-circuit TV solution, complete with a video editing lab and a stage. Students could record and broadcast segments to be aired to the rest of the school during a ten-minute homeroom period, much like today's news channels. As far as I know, the high school still utilizes the same architecture today (with upgraded equipment, of course). I soon learned the hard way that I needed to reform my actions. I worked hard and graduated with a cumulative GPA of 3.27.
+
+I soon started to dabble in security communities. In December 2000, I found Hack3r, led by the late Robert "EPiC" Allinson, a talented hacker whose life's goal (which was reached at one point) was to bridge the hacking underground with the mainstream. Though I thought my programming skills were great at the time, certain members of Hack3r helped me stretch my learning and grow my skills to what they are today. I owe my entire professional career to EPiC and his friends.
+
+I've been programming off-and-on ever since. Programming has been my life. I've learned a lot and have an infinite amount more to learn. I've felt many times that I"ve hit the programmer's nightmare. I entered the professional programming field four years ago, 3.5 of which was with a single employer. I loved that employer and am grateful for the long-term friendly relationship I've had and still have with them. On more than one occasion, I've felt that programming has become mundane. At times, no matter the problem I was solving, it felt the same to me: instantiating new variables, writing loops, coding conditional statements. Hacking away at code simply seemed as though I was regurgitating the same end-product time and time again.
+
+These past few months, I've learned the basics of writing Drupal modules. I've enhanced my PHP skills. I'm currently learning Objective-C and Cocoa development. Learning these new skills and being tasked with fun, exciting projects have rekindled my passion for programming. I absolutely love my current tasks. I'm now contributing back to the opensource communities. Contributing back brings feelings of accomplishment and respect. I dread the day when I feel burnt out again. I hope that day never again comes.
+
+<code>exit(0);</code>

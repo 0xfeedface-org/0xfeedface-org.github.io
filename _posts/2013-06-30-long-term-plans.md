@@ -1,0 +1,14 @@
+---
+layout: post
+title: Long-Term Plans
+created: 1372570172
+---
+I want to take a moment and share some of the long-term goals I've set for myself. I feel like I'm making a lot of progress in a lot of areas, and I'd like to publicly write down the project goals I have for the next year. You might think it's weird that I'm doing it almost in July, rather than as my "new year's resolutions" in January. However, after having been here in Maryland for a year now, I finally feel like I'm settling in and getting into my groove. It's been a wonderful year, full of struggles and hardships, and the rewards that come from them. Here are my various geeky goals for the next year or so (not in any particular order):
+<ul>
+<li>Finish <a href="https://github.com/lattera/libhijack" target="_blank">libhijack</a>. I've been stuck on a single problem for far too long. I've put the project on hold until I could spend more hours, frustrated at the lack of progress. I took a fresh look a few days ago and made a major breakthrough. I'm one step closer to anonymously injecting shared objects. I would like this project finished in six months time.</li>
+<li>Switch my FreeBSD jail administration <a href="https://github.com/lattera/drupal-jailadmin" target="_blank">Drupal module</a> over to a client/server model. This will make it so that you don't need to give passwordless sudo access to your web server user account (www). This will also put in place the foundation for the next goal. This will take four to six months.</li>
+<li>Create and release an alpha version of a FreeBSD fork, called <a href="http://virtbsd.org/" target="_blank">VirtBSD</a>. The aim of this project is to utilize ZFS, jails, vnet, and later bhyve. It will create a distribution of FreeBSD that will act as an opensource, FreeBSD-based competitor to VMWare ESXi or Citrix XenCenter. It will be based on my jail administration daemon and front-end. You will be able to configure it via an ncurses-based application on the console or a web browser (unlike ESX/ESXi, which requires a Windows installation). This will take at least a year.</li>
+<li>Fully implement ASLR on FreeBSD. Userland ASLR is completely missing in FreeBSD. I <a href="https://github.com/lattera/freebsd/commit/d524dad71542ceec8f399a12a1b569f4b23c6604" target="_blank">just implemented</a> an extremely basic, rudimentary version of ASLR today. I will need to add sysctls to control how the ASLR works under-the-hood and I'll need to add userland tools to be able to disable ASLR on a per-program basis. I estimate this will take around six months.</li>
+</ul>
+
+I'm really excited to take these projects on, especially the ASLR implementation. I feel these projects will grow my skills and create new ones. A lot of cool things are going to happen these next few years. I hope to have enough progress by May of next year to present at BSDCan one at least one of the topics surrounding these projects.
