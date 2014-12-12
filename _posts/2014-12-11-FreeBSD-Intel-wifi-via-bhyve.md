@@ -110,7 +110,7 @@ give eth0 a static IP and to tell the networking system to use WPA for
 wireless. You'll notice a pre-up script for eth0. That will be
 detailed later.
 
-<code>
+{% highlight sh %}
 auto lo
 iface lo inet loopback
 
@@ -124,7 +124,7 @@ iface eth0 inet static
 
 iface wlan0 inet dhcp
 wpa-conf /etc/wpa_supplicant.conf
-</code>
+{% endhighlight %}
 
 I had some issues with manually configuring wpa_supplicant. I had to
 add these lines to <code>/etc/rc.local</code> before the exit line:
