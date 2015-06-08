@@ -114,3 +114,8 @@ because of this one incident--mainly because the cofounder was
 involved. You don't know who you're pushing out and what innovations
 you're stifling by the way you're treating people. I promise to do
 better on my part. Please consider doing the same.
+
+08 Jun 2015 18:01 EDT - I have talked with one of the pfSense
+developers. We are working things out. I have personally apologised to
+him for any offenses I have made towards him or the pfSense project.
+I'd like to reiterate that my intentions were never malicious.
